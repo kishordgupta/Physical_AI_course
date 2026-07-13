@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applied Physical AI Course Website</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --ink: #152033;
+      --muted: #667085;
+      --brand: #13294b;
+      --brand2: #b8860b;
+      --line: #d9e0ea;
+      --soft: #eef3f9;
+      --ok: #0f766e;
+      --shadow: 0 18px 40px rgba(20, 33, 61, 0.12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    header {
+      background: linear-gradient(135deg, #0b1830, #13294b 60%, #0b1830);
+      color: #fff;
+      padding: 34px 28px;
+      border-bottom: 6px solid var(--brand2);
+    }
+    .header-inner { max-width: 1280px; margin: 0 auto; }
+    .eyebrow { color: #e7c76f; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem; font-weight: 700; }
+    h1 { margin: 10px 0 8px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
+    .subtitle { max-width: 900px; font-size: 1.08rem; color: #dce8f7; }
+    .layout {
+      max-width: 1280px;
+      margin: 24px auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 20px;
+    }
+    aside {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .side-title { padding: 18px 18px 12px; border-bottom: 1px solid var(--line); }
+    .side-title h2 { margin: 0; font-size: 1rem; }
+    .searchbox { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; margin-top: 12px; font-size: 0.95rem; }
+    .nav-list { padding: 10px; max-height: 66vh; overflow-y: auto; }
+    .module-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      padding: 12px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-bottom: 4px;
+      font-weight: 650;
+    }
+    .module-btn small { display: block; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .module-btn:hover { background: var(--soft); }
+    .module-btn.active { background: #13294b; color: white; }
+    .module-btn.active small { color: #e6eef8; }
+    .side-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; border-top: 1px solid var(--line); }
+    button.action {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--brand);
+      padding: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    button.action:hover { background: var(--soft); }
+    main { min-width: 0; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .card-body { padding: 26px; }
+    .course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .metric { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .metric strong { display: block; color: var(--brand); font-size: 1.4rem; }
+    h2, h3 { color: var(--brand); }
+    h2 { margin: 0 0 14px; font-size: 1.8rem; line-height: 1.2; }
+    h3 { margin-top: 24px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .module-hero {
+      background: linear-gradient(135deg, #13294b, #203d6a);
+      color: white;
+      padding: 24px 26px;
+      border-bottom: 5px solid var(--brand2);
+    }
+    .module-hero h2 { color: white; margin: 0 0 8px; }
+    .competency { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { border: 1px solid rgba(255,255,255,.35); color: #fff; padding: 5px 9px; border-radius: 999px; font-size: .82rem; }
+    .tag.dark { color: var(--brand); border-color: var(--line); background: var(--soft); }
+    ul, ol { padding-left: 24px; }
+    li { margin: 7px 0; }
+    .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+    .info-box { background: var(--soft); border-left: 5px solid var(--brand2); border-radius: 12px; padding: 16px; margin: 12px 0; }
+    .reading { border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 10px; background: #fff; }
+    .reading strong { color: var(--brand); }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+    th { background: var(--soft); color: var(--brand); }
+    .bottom-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 24px; }
+    .bottom-nav button { flex: 1; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: white; color: var(--brand); font-weight: 700; cursor: pointer; }
+    .bottom-nav button:hover { background: var(--soft); }
+    .progress-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--muted); }
+    input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--ok); }
+    .section-jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+    .section-jump a { text-decoration: none; color: var(--brand); background: #fff; border: 1px solid var(--line); padding: 7px 10px; border-radius: 999px; font-size: 0.88rem; }
+    .notice { color: var(--muted); font-size: 0.95rem; }
+    footer { max-width: 1280px; margin: 0 auto 30px; padding: 0 20px; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 920px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; }
+      .course-grid, .two-col { grid-template-columns: 1fr; }
+      .nav-list { max-height: none; }
+    }
+    @media print {
+      header, aside, .bottom-nav, .section-jump, .side-actions { display: none !important; }
+      body { background: white; }
+      .layout { display: block; margin: 0; padding: 0; }
+      .card { box-shadow: none; border: 0; page-break-inside: avoid; }
+      .card-body { padding: 10px 0; }
+      .module-hero { color: #000; background: white; border-bottom: 2px solid #000; }
+      .module-hero h2 { color: #000; }
+      .tag { color: #000; border-color: #999; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="eyebrow">Applied Physical AI Course</div>
+      <h1 id="courseTitle">Applied Physical AI and Data Science</h1>
+      <p class="subtitle" id="courseSubtitle"></p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside aria-label="Course module navigation">
+      <div class="side-title">
+        <h2>Course Modules</h2>
+        <input id="searchBox" class="searchbox" type="search" placeholder="Search modules..." />
+      </div>
+      <nav id="moduleNav" class="nav-list"></nav>
+      <div class="side-actions">
+        <button class="action" id="overviewBtn">Course Home</button>
+        <button class="action" id="printBtn">Print</button>
+      </div>
+    </aside>
+
+    <main id="content" tabindex="-1"></main>
+  </div>
+
+  <footer>
+    <p>This local course website is built with one HTML file and one JavaScript file. No external frameworks are required.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
